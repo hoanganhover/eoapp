@@ -35,13 +35,13 @@ class Stores extends React.Component {
         return (
             <div>
                 {data.map((item, index) => {
-                    const findStore = PaymentMethods.find(namemethod => namemethod.Id === item.PaymentMethodId);
+                    const findNameMethod = PaymentMethods.find(namemethod => namemethod.Id === item.PaymentMethodId);
                     const findNameStore = Stores.find(namestore => namestore.Id === item.StoreId);
                     return(
                         <div key={index}>
-                            <p>{findStore && findStore.Name ? findStore.Name : ''}</p>
-                            <p>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</p>
-                            <p>{item.Revenue}</p>
+                            <p>Store : <b>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</b></p>
+                            <p>Payment Method : {findNameMethod && findNameMethod.Name ? findNameMethod.Name : ''} -> {item.Revenue}</p>
+                            <hr/>
                         </div>
                     )
                 })}

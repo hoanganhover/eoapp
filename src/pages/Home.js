@@ -54,16 +54,19 @@ class Home extends React.Component {
                 {/*        </div>*/}
                 {/*    ))}*/}
                 {/*</div>*/}
-                <h3>List Stores</h3>
-                <div>
+                <h3 className="mt-4">List Stores</h3>
+                <div className="row mt-4">
                     {setting.Stores.map(item => {
                         const findStore = getRev.find(revstore => revstore.StoreId === item.Id);
                         return(
-                            <div key={item.Id}>
-                                <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
-                                <p>{item.Description}</p>
-                                <span>Revenue : <span className="text-primary">{findStore.Revenue}</span></span>
-                                <hr/>
+                            <div className="col-4" key={item.Id}>
+                                <div className="card">
+                                    <div className="card-body">
+                                        <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
+                                        <p><Link to={`/stores/${item.Id}`}>{item.Description}</Link></p>
+                                        <span>Revenue : <b className="text-dark">{findStore.Revenue}</b></span>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}
