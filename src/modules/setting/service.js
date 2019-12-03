@@ -1,3 +1,3 @@
 import request from '../../utils/request';
 
-export const getSetting = request.get();
+export const getSetting = () => request.get('');

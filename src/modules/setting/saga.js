@@ -1,20 +1,19 @@
 
-import { put, call, takeEvery, select } from 'redux-saga/effects';
+import {put, call, takeEvery} from 'redux-saga/effects';
 
 import * as Actions from './constants';
 
 import {getSetting} from './service';
 
 /**
- * Fetch data saga
+ * Fetch data setting loading
  * @returns {IterableIterator<*>}
  */
 function* loadingSettingSaga() {
   try {
     const data = yield call(getSetting);
-    console.log('data', data);
+    yield put({ type: Actions.LOADING_SETTING_SUCCESS, payload: [] });
   } catch (e) {
-    console.log('e', e)
     yield put({ type: Actions.LOADING_SETTING_ERROR, error: e });
   }
 }
