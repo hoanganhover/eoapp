@@ -1,13 +1,8 @@
 import React,{ Component } from 'react';
 import logo from '../../logo.svg';
-import Home from '../../pages/Home'
-import Stores from '../../pages/Stores'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import Home from '../../pages/Home';
+import Stores from '../../pages/Stores';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class Header extends Component {
     render() {

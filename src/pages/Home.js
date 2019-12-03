@@ -1,8 +1,7 @@
 import React from 'react';
 
-import request from '../utils/request';
 import {connect} from "react-redux";
-import {settingSelector} from "../modules/setting/selectors";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class Home extends React.Component {
     // constructor(){
@@ -42,7 +41,7 @@ class Home extends React.Component {
     render() {
         //const {data} = this.state;
         const {setting,getRev=[]} = this.props;
-        console.log(setting);
+        //console.log(setting);
         return (
             <div>
                 {/*<h3>List PaymentMethods</h3>*/}
@@ -61,7 +60,7 @@ class Home extends React.Component {
                         const findStore = getRev.find(revstore => revstore.StoreId === item.Id);
                         return(
                             <div key={item.Id}>
-                                <a href="#" className="badge badge-success">{item.Name}</a><br />
+                                <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
                                 <p>{item.Description}</p>
                                 <span>Revenue : <span className="text-primary">{findStore.Revenue}</span></span>
                                 <hr/>
