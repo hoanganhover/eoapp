@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import logo from '../../logo.svg';
 import Home from '../../pages/Home';
 import Stores from '../../pages/Stores';
+import Invoice from '../../pages/Invoice';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class Header extends Component {
@@ -12,11 +13,15 @@ class Header extends Component {
                 <Router>
                     <ul className="list-inline">
                         <li className="list-inline-item"><Link to="/">Home</Link></li>
-                        <li className="list-inline-item"><Link to="/stores">Store</Link></li>
+                        {/*<li className="list-inline-item"><Link to="/stores">Store</Link></li>*/}
+                        {/*<li className="list-inline-item"><Link to="/invoice">Invoice</Link></li>*/}
                     </ul>
                     <Switch>
                         <Route path="/stores">
                             <Stores />
+                        </Route>
+                        <Route path="/invoice">
+                            <Invoice />
                         </Route>
                         <Route path="/">
                             <Home />

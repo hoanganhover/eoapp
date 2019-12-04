@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {connect} from "react-redux";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
@@ -41,7 +40,7 @@ class Home extends React.Component {
     render() {
         //const {data} = this.state;
         const {setting,getRev=[]} = this.props;
-        //console.log(setting);
+        //console.log('setting',setting);
         return (
             <div>
                 {/*<h3>List PaymentMethods</h3>*/}
@@ -59,12 +58,14 @@ class Home extends React.Component {
                     {setting.Stores.map(item => {
                         const findStore = getRev.find(revstore => revstore.StoreId === item.Id);
                         return(
-                            <div className="col-4" key={item.Id}>
+                            <div className="col-4 mt-4" key={item.Id}>
                                 <div className="card">
                                     <div className="card-body">
-                                        <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
-                                        <p><Link to={`/stores/${item.Id}`}>{item.Description}</Link></p>
-                                        <span>Revenue : <b className="text-dark">{findStore.Revenue}</b></span>
+
+                                            <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
+                                            <p><Link to={`/stores/${item.Id}`}>{item.Description}</Link></p>
+
+                                        <span>Revenue : <b className="text-dark">{findStore && findStore.Revenue ? findStore.Revenue : ''}</b></span>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +78,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.setting)
+    //console.log(state.setting)
     return {
         setting: state.setting.data,
         getRev: state.setting.dataRev,
