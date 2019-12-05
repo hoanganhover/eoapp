@@ -3,6 +3,7 @@ import logo from '../../logo.svg';
 import Home from '../../pages/Home';
 import Stores from '../../pages/Stores';
 import Invoice from '../../pages/Invoice';
+import InvoiceDetail from '../../pages/InvoiceDetail';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class Header extends Component {
@@ -22,6 +23,9 @@ class Header extends Component {
                         </Route>
                         <Route path="/invoice">
                             <Invoice />
+                        </Route>
+                        <Route path="/invoice-detail">
+                            <InvoiceDetail />
                         </Route>
                         <Route path="/">
                             <Home />

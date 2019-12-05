@@ -23,7 +23,6 @@ class Stores extends React.Component {
                     data: data ? data : [],
                 })
             }
-
         } catch (e) {
 
         }
@@ -46,7 +45,7 @@ class Stores extends React.Component {
                     return(
                         <div key={index}>
                             {/*<p>Store : <b>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</b></p>*/}
-                            <Link to={`/invoice?storeId=${item.StoreId}&paymentMethodId=${item.PaymentMethodId}`}>Payment Method {item.PaymentMethodId} : {findNameMethod && findNameMethod.Name ? findNameMethod.Name : ''} -> {item.Revenue}</Link>
+                            <Link to={`/invoice?paymentMethodId=${item.PaymentMethodId}`}>Payment Method {item.PaymentMethodId} : {findNameMethod && findNameMethod.Name ? findNameMethod.Name : ''} -> {item.Revenue}</Link>
                             <hr/>
                         </div>
                     )
