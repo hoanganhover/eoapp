@@ -4,6 +4,7 @@ import Home from '../../pages/Home';
 import Stores from '../../pages/Stores';
 import Invoice from '../../pages/Invoice';
 import InvoiceDetail from '../../pages/InvoiceDetail';
+import CreateStore from '../../pages/CreateStore';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 class Header extends Component {
@@ -26,6 +27,9 @@ class Header extends Component {
                         </Route>
                         <Route path="/invoice-detail">
                             <InvoiceDetail />
+                        </Route>
+                        <Route path="/createstore">
+                            <CreateStore />
                         </Route>
                         <Route path="/">
                             <Home />

@@ -5,3 +5,9 @@ export function getSetting() {
     type: Actions.LOADING_SETTING,
   };
 }
+export function addStore(data) {
+  return {
+    type: Actions.ADD_STORE,
+    data:data,
+  };
+}

@@ -54,7 +54,8 @@ class Home extends React.Component {
                 {/*    ))}*/}
                 {/*</div>*/}
                 <h3 className="mt-4">List Stores</h3>
-                <div className="row mt-4">
+                <Link className="btn btn-primary mt-4" to="/createstore"> Create Store</Link>
+                <div className="row mt-2">
                     {setting.Stores.map(item => {
                         const findStore = getRev.find(revstore => revstore.StoreId === item.Id);
                         return(

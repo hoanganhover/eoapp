@@ -8,7 +8,7 @@ const request = axios.create({
 request.interceptors.request.use(
   async config => {
     config.headers = {
-      'Content-Type': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+      'Content-Type': 'application/x-www-form-urlencoded',
     };
     return config;
   },
