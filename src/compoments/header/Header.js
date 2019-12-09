@@ -19,21 +19,11 @@ class Header extends Component {
                         {/*<li className="list-inline-item"><Link to="/invoice">Invoice</Link></li>*/}
                     </ul>
                     <Switch>
-                        <Route path="/stores">
-                            <Stores />
-                        </Route>
-                        <Route path="/invoice">
-                            <Invoice />
-                        </Route>
-                        <Route path="/invoice-detail">
-                            <InvoiceDetail />
-                        </Route>
-                        <Route path="/createstore">
-                            <CreateStore />
-                        </Route>
-                        <Route path="/">
-                            <Home />
-                        </Route>
+                        <Route path="/:idstores" exact component={Stores} />
+                        <Route path="/:idstores/:idpaymentmethod" exact component={Invoice} />
+                        <Route path="/:idstores/:idpaymentmethod/:idinvoice" exact component={InvoiceDetail} />
+                        <Route path="/createstore" component={CreateStore} exact/>
+                        <Route path="/" component={Home} />
                     </Switch>
                 </Router>
             </header>

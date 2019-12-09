@@ -63,8 +63,8 @@ class Home extends React.Component {
                                 <div className="card">
                                     <div className="card-body">
 
-                                            <Link to={`/stores/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
-                                            <p><Link to={`/stores/${item.Id}`}>{item.Description}</Link></p>
+                                            <Link to={`/${item.Id}`} className="badge badge-success">{item.Name}</Link><br />
+                                            <p><Link to={`/${item.Id}`}>{item.Description}</Link></p>
 
                                         <span>Revenue : <b className="text-dark">{findStore && findStore.Revenue ? findStore.Revenue : ''}</b></span>
                                     </div>

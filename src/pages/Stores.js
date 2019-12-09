@@ -3,6 +3,7 @@ import {withRouter} from 'react-router';
 import {getStoreID} from '../modules/setting/service';
 import {connect} from "react-redux";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import BreadcrumbPage from "../compoments/Breadcrumb/Breadcrumb";
 
 class Stores extends React.Component {
     constructor(props){
@@ -10,6 +11,7 @@ class Stores extends React.Component {
         const pathname = props.location.pathname;
         const splitString = pathname.split('/');
         this.storeId = splitString[splitString.length -1];
+        console.log(pathname);
         this.state = {
             data : []
         }
@@ -39,13 +41,14 @@ class Stores extends React.Component {
 
         return (
             <div>
+                <BreadcrumbPage/>
                 <h5>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</h5>
                 {data.map((item, index) => {
                     const findNameMethod = PaymentMethods.find(NameMethod => NameMethod.Id === item.PaymentMethodId);
                     return(
                         <div key={index}>
                             {/*<p>Store : <b>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</b></p>*/}
-                            <Link to={`/invoice?paymentMethodId=${item.PaymentMethodId}`}>Payment Method {item.PaymentMethodId} : {findNameMethod && findNameMethod.Name ? findNameMethod.Name : ''} -> {item.Revenue}</Link>
+                            <Link to={location => `${location.pathname}/${item.PaymentMethodId}`}>Payment Method {item.PaymentMethodId} : {findNameMethod && findNameMethod.Name ? findNameMethod.Name : ''} -> {item.Revenue}</Link>
                             <hr/>
                         </div>
                     )

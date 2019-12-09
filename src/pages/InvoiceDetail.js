@@ -4,13 +4,19 @@ import {getInvoice} from '../modules/setting/service';
 import {connect} from "react-redux";
 import {parse} from "../helper/query-string";
 import ComProduct from "../compoments/products/ComProduct";
+import BreadcrumbPage from "../compoments/Breadcrumb/Breadcrumb";
 
 class InvoiceDetail extends React.Component {
     constructor(props){
         super();
-        const pathname = props.location.search;
-        this.paymentMethodId = parse(pathname).paymentMethodId;
-        this.storeId = parse(pathname).storeId;
+        const pathname = props.location.pathname;
+        const splitString = pathname.split('/');
+
+        this.paymentMethodId = splitString[splitString.length -2];
+        console.log("method",splitString)
+        // this.paymentMethodId = parse(pathname).paymentMethodId;
+        this.storeId = splitString[splitString.length -3];
+        console.log("store",this.storeId)
         this.state = {
             data : []
         }
@@ -48,6 +54,7 @@ class InvoiceDetail extends React.Component {
         //const {setting:{PaymentMethods,Stores}}= this.props;
         return (
             <div>
+                <BreadcrumbPage/>
                 <table className="table">
                     <thead>
                         <tr>

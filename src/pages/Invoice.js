@@ -5,14 +5,18 @@ import {connect} from "react-redux";
 //import ComProduct from "../compoments/products/ComProduct";
 import {parse} from "../helper/query-string"
 import {Link} from "react-router-dom";
+import BreadcrumbPage from "../compoments/Breadcrumb/Breadcrumb";
 
 class Invoice extends React.Component {
     constructor(props){
         super();
-        const pathname = props.location.search;
+        const pathname = props.location.pathname;
         //console.log('pathname',parse(pathname));
-        this.paymentMethodId = parse(pathname).paymentMethodId;
+        //this.paymentMethodId = parse(pathname).paymentMethodId;
+        const splitString = pathname.split('/');
+        this.paymentMethodId = splitString[splitString.length -1];
         //console.log("this.paymentMethodId", this.paymentMethodId);
+        console.log('111',this.paymentMethodId);
         this.state = {
             data : []
         }
@@ -52,6 +56,7 @@ class Invoice extends React.Component {
         const {setting:{PaymentMethods,Stores}}= this.props;
         return (
             <div>
+                <BreadcrumbPage/>
                 <table className="table">
                     <thead>
                     <tr>
@@ -71,7 +76,7 @@ class Invoice extends React.Component {
                             {/*)}*/}
                             <tr>
                                 <td>{item.Id}</td>
-                                <td><Link to={`/invoice-detail?storeId=${item.StoreId}&paymentMethodId=${item.PaymentMethodId}`}>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</Link></td>
+                                <td><Link to={location => `${location.pathname}/${item.Id}`}>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</Link></td>
                                 <td>{this.countQty(item.LineItems)}</td>
                                 <td>${this.countTotal(item.LineItems,item.TaxRate)}</td>
 
