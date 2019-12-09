@@ -4,7 +4,7 @@ import {getInvoice} from '../modules/setting/service';
 import {connect} from "react-redux";
 import {parse} from "../helper/query-string";
 import ComProduct from "../compoments/products/ComProduct";
-import BreadcrumbPage from "../compoments/Breadcrumb/Breadcrumb";
+import BreadcrumbStore from "../compoments/Breadcrumb/BreadcrumbStore";
 
 class InvoiceDetail extends React.Component {
     constructor(props){
@@ -54,7 +54,7 @@ class InvoiceDetail extends React.Component {
         //const {setting:{PaymentMethods,Stores}}= this.props;
         return (
             <div>
-                <BreadcrumbPage/>
+                <BreadcrumbStore/>
                 <table className="table">
                     <thead>
                         <tr>

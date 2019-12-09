@@ -3,7 +3,7 @@ import {withRouter} from 'react-router';
 import {getStoreID} from '../modules/setting/service';
 import {connect} from "react-redux";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import BreadcrumbPage from "../compoments/Breadcrumb/Breadcrumb";
+import BreadcrumbStore from "../compoments/Breadcrumb/BreadcrumbStore";
 
 class Stores extends React.Component {
     constructor(props){
@@ -41,7 +41,7 @@ class Stores extends React.Component {
 
         return (
             <div>
-                <BreadcrumbPage/>
+                <BreadcrumbStore/>
                 <h5>{findNameStore && findNameStore.Name ? findNameStore.Name : ''}</h5>
                 {data.map((item, index) => {
                     const findNameMethod = PaymentMethods.find(NameMethod => NameMethod.Id === item.PaymentMethodId);
